@@ -1,0 +1,11 @@
+<div class="cardbox">
+    <a href="oneProduct.php?id=<?= $recentProduct['id'] ?>">    
+    <img src="assets/img/<?=$recentProduct['image']?>" alt="<?=$recentProduct['alt']?>" class="img-responsive fit-image text-center" width="350">
+    <div class="box box-small">
+        <!-- <h4>< ?=$recentProducts[$key]['name']?></h4> // ici on a besoin de $key car on va chercher dans $recentProducts-->
+        <!-- en dessous on n'a pas besoin de [$key] car  on va chercher dans $recentProduct - sans le S - donc on remplit cette variable à chaque tour de boucle dans HP -->
+        <h4><?=$recentProduct['name']?></h4> 
+
+    </div>
+    </a>
+</div>

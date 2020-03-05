@@ -1,0 +1,52 @@
+<section class="bloc-intro">
+    <div class="container introImage">
+        <div class="row text-center">
+            <div class="col-12">
+                <h2 class="mt-5 mb-5"><?=$oneProduct['name']?></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4">
+                    </div>
+                    <div class="col-7">
+                        <ul>
+                            <li><p class="">Nombre de personnes : <?=$oneProduct['number']?></p></li>
+                            <li><p class="">Temps de préparation : <?=$oneProduct['mixture']?></p></li>
+                            <li><p class="">Temps de préparation : <?=$oneProduct['mixture']?></p></li>
+                        </ul>
+                    </div>
+                    <div class="col-1">
+                    </div>
+                </div>                
+            </div> 
+            <div class="col-6 text-center">
+                <img src="assets/img/<?=$oneProduct['image']?>" alt="<?=$oneProduct['alt']?>" class="img-responsive fit-image" width="500">
+            </div> 
+        </div>     
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-lg-4">
+                <div class="">
+                    <h2 class="mb-3 text-uppercase"><span>Ingrédients</span></h2>  <!-- on ajoute le <span> pour pouvoir faire du CSS juste sur le mot. Sinon àn fait sur la div entière -->
+                    <ul><?=$oneProduct['ingredients']?></ul>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="recette">
+                <h2 class="mb-3 text-uppercase"><span>Recette</span></h2>  <!-- on ajoute le <span> pour pouvoir faire du CSS juste sur le mot. Sinon àn fait sur la div entière -->
+                    <ul><?=$oneProduct['recipe']?></ul>   
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5 mb-5">
+            <div class="col-12 text-center">
+                <a href="index.php" class="btn btn-primary">Retour Accueil</a>
+            </div>
+        </div>
+    </div>
+</section>

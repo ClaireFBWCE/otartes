@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,800|Nixie+One&display=swap');
+
+body{
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+
+a{
+    color: white;
+}
+
+a:hover{
+    color: rgba(34, 155, 34, 0.747);
+}
+
+a:visited{
+    color: white;
+}
+
+
+header{
+    background-image: linear-gradient(rgba(238, 96, 120, 0.788), rgba(238, 96, 120, 0.788)), url("../img/background.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+nav li{
+    font-weight: 500;
+    font-size: 0.6rem;
+    margin: 0 5px;
+}
+
+#header{
+    padding-bottom: 50px;
+}
+
+h1{
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+h2, h4{
+    font-weight: 800;
+}
+
+
+h2{
+    font-size: 1.7rem;
+}
+
+h4{
+    font-size: 1rem;
+}
+
+h3{
+    font-family: 'Nixie One', Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+
+p{
+    font-size: 0.6rem;
+    font-weight: 400;  
+}
+
+.btn{
+    border-radius: 50px;
+    font-size: 0.6rem;
+    padding: 5px 20px;
+    background: none;
+}
+
+.btn-primary{
+    border: 1px solid rgba(238, 156, 170, 0.884);
+    color: rgba(238, 156, 170, 0.884)
+}
+
+.btn-primary:hover{
+    background-color: rgba(238, 156, 170, 0.884);
+    color: white;
+    border-color: rgba(238, 156, 170, 0.884);
+}
+
+.btn-secondary{
+    background-color: rgba(238, 156, 170, 0.884);
+    border: 1px solid white;
+}
+
+.btn-secondary:hover{
+    background-color: rgba(240, 120, 140, 0.884);
+    border-color: white;
+}
+
+
+#intro-img{
+    height: 150px;
+    margin-top: -320px;
+}
+
+#intro-img>img{
+    width: 60%;
+    margin-bottom: 30px;
+}
+
+#intro-titre{
+    margin-top: -20px;
+    border: 1px solid rgb(32, 126, 32);
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+#intro-smoothies>img{
+    width: 50%;
+}
+
+#intro{
+    margin-top: 30px;
+    min-height: 100px;
+}
+
+#intro-texte{
+    padding: 20px;
+}
+
+.hublots-titres{
+    border: 1px solid rgba(238, 96, 120, 0.788);
+    margin: -10px 80px 20px 80px;
+    position: relative;
+    padding: 30px 20px 20px 20px;
+    text-align:center;
+}
