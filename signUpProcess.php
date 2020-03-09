@@ -34,6 +34,7 @@ function isDataFromFormValid(): bool
     return true;
 }
 
+//vérifier la validité des datas
 if (isDataFromFormValid() === false) {
     header("Location: signUp.php");
     die();
@@ -46,11 +47,18 @@ if (isDataFromFormValid() === false) {
 $userRepository = new UserRepository();
 
 if ($userRepository->doesEmailExists($_POST['email'])) {
+
+    (new MessageService())->fillMessage("email_not_exists");
+
     header("Location: signUp.php");
+    die();
 }
 
 // On est bon, on enregistre le nouveau user
 $userId = $userRepository->createUser($_POST['firstname'],  $_POST['lastname'], $_POST['email'], $_POST['password']);
 
+(new MessageService())->fillMessage("user_created");
+
 header("Location: index.php");
+
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ô Tartes - découvrez des recettes de tartes salées et sucrées</title>
+    <title>Ô Tartes - recettes de tartes salées et sucrées</title>
     <link rel="icon" type="image/png" href="assets\img\picto-pie.png">
     <link rel="shortcut icon" href="assets\img\picto-pie.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" >
@@ -12,13 +12,12 @@
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="assets\css\bootstrap.css">
     <link rel="stylesheet" href="assets\css\styles.css">
-    <title>Ô Tartes</title>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark static-top">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.php">
                     <img class="logo" src="assets/img/picto-pie.png" alt="" height="60">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,27 +29,40 @@
                             <a class="nav-link" href="index.php">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Salée</a>
+                            <a class="nav-link" href="allCategoryProducts.php?category_id=1">Salée</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sucrée</a>
+                            <!-- <a class="nav-link" href="allSweetProducts.php">Sucré</a> -->
+                            <a class="nav-link" href="allCategoryProducts.php?category_id=2">Sucrée</a>
+                            <!-- <a href="oneProduct.php?id=<c?= $sweetProduct['id'] ?>">     
+                               
+                            url ==> localhost/o-tartes/allSweetProducts.php?category_id=2
+                            -->
+
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Media</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="connectionProcess.php">Connexion /</a>
+                        <!-- <li class="nav-item">
+                            < ?php if(!$userConnection):?>
+                                <a class="nav-link text-white" href="connection.php"><img src="assets/img/signin3.png" alt="Ô Tartes ! se connecter" width="50"></a>
+                            < ?php else: ?>
+                                <a class="nav-link" href="signUp.php"><img src="assets/img/signout4.png" alt="Ô Tartes ! se déconnecter" width="50"></a>
+                            < ?php endif;?>
+                        </li>     -->
+                        <li class="nav-item connect">
+                        <a class="nav-link" href="connectionProcess.php"><img src="assets/img/signin3.png" alt="Connexion"></a>
                         </li>   
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="signUpProcess.php">Inscription</a>
-                        </li>                
+                        </li>                 -->
                     </ul>
                 </div>
             </div>
         </nav>
         <div class="container mt-5 pt-5 text-center">
             <h1><?= $title ?></h1>
-            <?php if($title == 'Ô Tartes !'): ?>
+            <?php if($title == 'Bienvenue sur Ô Tartes !'): ?>
                 <h2>Votre bonheur en tartes salées ou sucrées!</h2>
             <?php endif; ?>
         </div>

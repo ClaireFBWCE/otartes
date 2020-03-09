@@ -3,7 +3,7 @@ session_start();
 
 require_once 'models/Autoloader.php';
 
-$title = 'Ô Tartes !';  
+$title = 'Bienvenue sur Ô Tartes !';  
 
 
 // voir si la session fonctionne bien
@@ -14,12 +14,25 @@ $title = 'Ô Tartes !';
 // }
 // die(var_dump($_GET));
 
+/*// Connexion User
+$userRepo = new UserRepository();
+$userConnection = $userRepo->userIsConnected();
+// $userDisconnected = $userRepo->disconnectUser();
+// die(var_dump($userDisconnected));*/
+
+// Connexion User
+
+$userRepo = new UserRepository();
+
+$connectionService = new ConnectionService();
+$userConnection = $connectionService->isUserConnected();
 
 
+// récupérer les  produits
 $productRepo = new ProductRepository();
 $allproducts = $productRepo->getAllPies();
 
-$recentProducts = $productRepo->get3RecentPies();
+$recentProducts = $productRepo->get6RecentPies();
 
 $saltedProducts = $productRepo->get3SaltedPies();
 // die(var_dump($saltedProducts));
@@ -34,9 +47,13 @@ $sweetProducts = $productRepo->get3SweetPies();
 // $userConnection = new UserConnection();
 // $userConnection->connectUser('test@test.fr', 'testest');
 
+$messageService = new MessageService();
+
 // Views dont on a besoin
 require('templates\header.phtml');
 require('templates\pages\homepage.phtml');
 require('templates\footer.phtml');
+
+$messageService->deleteMessage();
 
 

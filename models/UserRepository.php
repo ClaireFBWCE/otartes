@@ -52,6 +52,7 @@ class UserRepository{
         $stmt->bindParam(':pass', $password);
 
         $res = $stmt->execute();
+
         if (!$res) {
             throw new Exception("An Sql error has occured !");
         }
@@ -59,6 +60,26 @@ class UserRepository{
         return $pdo->lastInsertId();
     }
 
+    public function getOneUserByEmail(string $email)
+    {
+         // récupérer le SQL
+         $userSQL = "SELECT * FROM otartes_user WHERE email = :EMAIL";
+         $query = $this->dbConnect->pdo->prepare($userSQL);
+ 
+         if(!$query->execute([':EMAIL' => $email])){
+             return false;
+         }
+         $user = $query->fetch(PDO::FETCH_ASSOC);
+
+         // s'assurer que le user existe
+        if(empty($user)) {
+            return false;
+        }
+            
+        return $user;
+    }
+
+    /*
     public function connectUser(string $email, string $password)
     {
         
@@ -85,11 +106,11 @@ class UserRepository{
             return false;
         }
                         
-        /*
-        // comparer les 2 mdp
-        if(!password_verify($password, $user['password'])){
-            return false;
-        } */
+        
+        // // comparer les 2 mdp
+        // if(!password_verify($password, $user['password'])){
+        //     return false;
+        // }
 
         
         // gérer les sessions
@@ -101,17 +122,19 @@ class UserRepository{
 
     }
 
-    // public function disconnectUser()
-    // {
-    //     if(isset($_SESSION['user'])){
-    //         unset($_SESSION['user']);
-    //     }
-    // }
+    // déconnecter le user s'il est connecté
+    public function disconnectUser()
+    {
+        if(isset($_SESSION['user'])){
+            unset($_SESSION['user']);
+        }
+    }
 
-    // public function userIsConnected()
-    // {
-    //     return isset($_SESSION['user']);
+    // vérifier si le user est connecté
+    public function userIsConnected()
+    {
+        return isset($_SESSION['user']);
 
-    // }
+    } */
 
 }

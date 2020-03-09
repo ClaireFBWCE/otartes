@@ -24,12 +24,12 @@ class ProductRepository{
 
     }
 
-    public function get3RecentPies() 
+    public function get6RecentPies() 
     {
         $sql = "SELECT p.`id`, p.`name`, p.`image`, p.`alt` FROM otartes_product AS p
         WHERE p.active = 1
         ORDER BY `created_at` DESC
-        LIMIT 3";
+        LIMIT 6";
 
         $query = $this->database->pdo->prepare($sql);
         $query->execute();
@@ -79,6 +79,32 @@ class ProductRepository{
         }        
         
         return $query->fetch(PDO::FETCH_ASSOC);
+
+    }
+
+    // public function getAllCategories()
+    // {
+    //     $sql = "SELECT * FROM `otartes_category`";
+    //     $query = $this->database->pdo->prepare($sql);
+
+    //     $query->execute();
+    //     return $query->fetchAll(PDO::FETCH_ASSOC);
+    // }
+
+    public function getProductByCategory(int $category_id)
+    {
+        $sql = "SELECT p.`id`, p.`name`, p.`image`, p.`alt` FROM otartes_product AS p 
+        LEFT JOIN `otartes_category` AS cat ON cat.id = p.category_id
+        WHERE p.active = 1
+        AND cat.id = :CID
+        ORDER BY `created_at` DESC";
+        $query = $this->database->pdo->prepare($sql);
+
+        if(!$query->execute([':CID' => $category_id])){
+            return null;
+        }        
+        
+        return $query->fetchAll(PDO::FETCH_ASSOC);
 
     }
 

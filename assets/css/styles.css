@@ -1,8 +1,77 @@
 header {
     min-height : 400px;
-    background: linear-gradient(to bottom right, rgba(238, 224, 96, 0.8), rgba(236, 117, 137, 0.8)), url("../img/otartes_homepage.jpg");
+    background: linear-gradient(to top right, rgba(243, 234, 114, 0.87), rgba(163, 224, 214, 0.8)), url("../img/otartes_homepage.jpg");
     background-position: center;
     background-size: cover;
+}
+
+/* NAVBAR */
+.navbar-dark .navbar-nav .nav-link {
+    color: black;
+}
+
+.navbar .connect {
+    width: 50px;
+}
+
+.navbar .connect>a>img {
+    width: 100%;
+}
+
+/* CONNECTION */
+.connection .trait {
+    border-right: 1px solid #576556;
+}
+
+/* BOUTONS */
+.btn {
+    border-radius: 10px;
+    padding-left:1.8rem;
+    padding-right:1.8rem;
+    background-color: #7AC489;
+    border: 1px solid #576556;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #B4F7C4;
+    border: 1px solid #898d89;
+
+}
+
+.btn-secondary {
+    background-color: #C2AD92;
+    border: 1px solid #898d89;
+}
+
+.btn-secondary:hover {
+    background-color: rgb(211, 192, 168);
+    border: 1px solid #898d89;
+}
+
+.btn-success {
+    background-color: #C2AD92;
+    border: 1px solid #898d89;
+}
+
+.btn-success:hover {
+    background-color: rgb(211, 192, 168);
+    border: 1px solid #898d89;}
+
+/* BOX */
+.cardbox .fit-image{
+    width: 100%;
+    object-fit: cover;
+    height: 250px; 
+    border: 2px solid #898d89;
+}
+
+.cardbox>a {
+    color: #898d89;    
+}
+
+.cardbox {
+ margin: 0 20px;
 }
 
 .box {
@@ -12,9 +81,35 @@ header {
 }
 
 .box-small{
-    border-color:  rgb(238, 96, 120);
+    height: 100px;
+    /* border-radius: 25px; */
+    border-color:  #7AC489;
+    background-color: rgba(255, 255, 255, 0.9);
     text-align: center;
-    margin: -2rem 2rem 5rem 2rem;
-    padding-top: 3rem;
+    margin: -2.1rem 0rem 5rem 9rem;
+    padding-top: 2rem;
     position: relative;
+}
+
+.homepage .box-small h4 {
+    font-size: 1.3rem;
+}
+
+/* Homepage */
+.homepage h4 {
+    font-size: 2.5rem;
+}
+
+.homepage a{
+    text-decoration: none;
+    color: #0F1410;
+}
+
+.homepage a h4:hover{
+    opacity: .8;
+    color:  rgb(58, 92, 65);
+}
+
+.homepage a:visited{
+    color: #0F1410;
 }

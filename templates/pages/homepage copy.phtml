@@ -1,5 +1,5 @@
 <section>
-    <?php if($messageService->getMessage() === "user_connected"): ?>   
+    <?php if(isset($_SESSION['user'])): ?>   
         <div class="row">
             <div class="col-12 file-alert">
                 <div class="alert alert-success text-center" role="alert">
@@ -17,8 +17,8 @@
             </div>
         </div>
     <?php endif; ?> 
-
-    <?php if($messageService->getMessage() === "user_disconnected"): ?>  
+    
+    <?php if(isset($userDisconnected) && $userDisconnected): ?>   
         <div class="row">
             <div class="col-12 file-alert">
                 <div class="alert alert-success text-center" role="alert">
@@ -28,7 +28,7 @@
         </div>
     <?php endif; ?>
 
-    <?php if($messageService->getMessage() === "user_created"): ?>   
+    <? if(isDataFromFormValid() == true): ?>   
         <div class="row">
             <div class="col-12 file-alert">
                 <div class="alert alert-success text-center" role="alert">
@@ -36,7 +36,7 @@
                 </div>
             </div>
         </div>
-    <?php endif; ?>
+    <? endif; ?>
 </section>
 <section class="container"> 
     <div>        
@@ -70,7 +70,7 @@
     </div>
     <div class="row homepage">
         <div class="col-12 text-center mb-5">
-        <h4>Ô récentes Tartes!</h4>
+        <a href="#"><h4>Ô récentes Tartes!</h4></a>
         </div>
         <!-- < ?php foreach($recentProducts as $key => $recentProduct): ? > -->
         <?php foreach($recentProducts as $recentProduct): ?>
@@ -82,7 +82,7 @@
     </div>
     <div class="row homepage">
         <div class="col-12 text-center mb-5">
-            <a href="allCategoryProducts.php?category_id=1"><h4>Ô Tartes! salées</h4></a>
+            <a href="#"><h4>Ô Tartes! salées</h4></a>
         </div>
         <?php foreach($saltedProducts as $saltedProduct): ?>
             <div class="col-md-4">
@@ -92,7 +92,7 @@
     </div>
     <div class="row homepage">
         <div class="col-12 text-center mb-5">
-            <a href="allCategoryProducts.php?category_id=2"><h4>Ô Tartes! sucrées</h4></a>        
+            <a href="allSweetProducts.php?category_id=<?= $allSweetProducts['category_id'] ?>"><h4>Ô Tartes! sucrées</h4></a>        
         </div>
         <?php foreach($sweetProducts as $sweetProduct): ?>
             <div class="col-md-4">

@@ -18,27 +18,28 @@ function isDataFromConnectionValid(): bool{
     }
     
     return true;
-    
 }
 
 if(isDataFromConnectionValid() === false){
     header("Location: connection.php");
+    die();
 }
 
-
 // On instancie les classes de base de donnée pour récupérer le user qui correspond à l'email rentré
-$userConnection = new UserRepository();
+$userRepo = new UserRepository();
 
-/* 2 façons de faire : 
-1.
-$email = $_POST['email'];
-$password = $_POST['password'];
-$connectionResult = $userConnection->connectUser($email, $password);
 
-2. */
+// On instancie la classe ConnectionService
+$connectionService = new ConnectionService();
 
-$connectionResult = $userConnection->connectUser($_POST['email'], $_POST['password']);
-// die(var_dump($connectionResult));
+// on récupère le user
+$user = $userRepo->getOneUserByEmail($_POST['email']);
+if (!$user) {
+    throw new Exception('No User found for email ' . $_POST['email']);
+}
+
+// on connecte le user
+$connectionResult = $connectionService->connectUser($user, $_POST['password']);
 
 if(!$connectionResult) {
     header("Location: connection.php");
