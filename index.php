@@ -3,7 +3,7 @@ session_start();
 
 require_once 'models/Autoloader.php';
 
-$title = 'Bienvenue sur Ô Tartes !';  
+$title = 'Bienvenue sur Ô Tartes&nbsp;!';  
 
 
 // voir si la session fonctionne bien

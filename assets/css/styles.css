@@ -1,13 +1,67 @@
+<style>
+@import url('https://fonts.googleapis.com/css?family=Baloo+Chettan+2:400,600|Roboto:400,500,700&display=swap');
+</style>
+
+body {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+
+h1, h2 {
+    font-family: 'Baloo Chettan 2', cursive;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+}
+
+h4 {
+    font-size: 1.3rem;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
 header {
-    min-height : 400px;
+    min-height : 500px;
     background: linear-gradient(to top right, rgba(243, 234, 114, 0.87), rgba(163, 224, 214, 0.8)), url("../img/otartes_homepage.jpg");
     background-position: center;
     background-size: cover;
 }
 
+.h-title{
+    margin: 120px auto;
+
+}
+
 /* NAVBAR */
+
+.navbar {
+    padding-top: 20px;
+}
 .navbar-dark .navbar-nav .nav-link {
-    color: black;
+    color: #0F1410;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    padding-right: 20px;
+}
+
+.navbar-dark .navbar-nav .nav-link:nth-last-child() {
+    padding-right: 0px;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: rgb(188, 240, 199);
+}
+
+.navbar-dark .navbar-nav .nav-link>a:visited {
+    color: #0F1410;
 }
 
 .navbar .connect {
@@ -15,7 +69,19 @@ header {
 }
 
 .navbar .connect>a>img {
-    width: 100%;
+    width: 220%;
+}
+
+.navbar .connect>a {
+    font-size: 1rem;
+}
+
+.navbar .connect{
+    margin-top: -10px;
+}
+
+.navbar .navbar-brand>a {
+    margin-top: 20px;
 }
 
 /* CONNECTION */
@@ -87,18 +153,15 @@ header {
     background-color: rgba(255, 255, 255, 0.9);
     text-align: center;
     margin: -2.1rem 0rem 5rem 9rem;
-    padding-top: 2rem;
+    padding-top: 1.7rem;
     position: relative;
 }
 
 .homepage .box-small h4 {
-    font-size: 1.3rem;
+    
 }
 
 /* Homepage */
-.homepage h4 {
-    font-size: 2.5rem;
-}
 
 .homepage a{
     text-decoration: none;
@@ -111,5 +174,49 @@ header {
 }
 
 .homepage a:visited{
+    color: #0F1410;
+}
+
+/* Footer */
+footer {
+    min-height : 400px;
+    background-color: #B4F7C4;
+}
+
+footer .contact {
+    margin-top: 150px;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+footer .contact>li:nth-child(1) {
+    margin-bottom: 30px;
+}
+
+footer .contact .horiz {
+    display: inline;
+}
+
+footer .contact .horiz:nth-child(even) {
+    margin-right: 30px;
+}
+
+footer .contact .fab {
+    font-size: 3.5rem;
+    color: #0F1410;
+}
+
+footer .contact a{
+    text-decoration: none;
+    color: #0F1410;
+}
+
+footer .contact a:hover{
+    opacity: .8;
+    color:  rgb(58, 92, 65);
+}
+
+footer .contact a:visited{
     color: #0F1410;
 }

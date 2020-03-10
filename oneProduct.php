@@ -1,12 +1,9 @@
 <?php
 require_once 'models/Autoloader.php';
 
-$title = 'Page Produit baby !';
-
-// echo 'Bienvenue sur la page produit';
 
 // vérifier que l'id existe et récupérer l'id d'une pie à afficher
-// tester avec url de tyupe : http://localhost/o-tartes?id=quelquechose
+// tester avec url de type : http://localhost/o-tartes?id=quelquechose
 // die(var_dump($_GET));
 
 // $id = $_GET['id'];
@@ -20,6 +17,10 @@ if(isset($_GET['id'])){
 
 $oneProductRepo = new ProductRepository();
 $oneProduct = $oneProductRepo->getOnePie($id);
+
+// titre de la page
+$title = 'Ô Tartes&nbsp;!<br>' .$oneProduct['name'];
+
 
 // var_dump($oneProduct);
 
