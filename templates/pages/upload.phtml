@@ -1,0 +1,93 @@
+<section class="container upload">
+    <h2 class="text-center mt-5 mb-2">Formulaire à remplir</h5>
+    <h5 id="warning" class="text-center mb-5">Attention à bien compléter tous les champs avant de valider</h1>
+    <div class="container text-center" id="form">
+        <form action="uploadProcess.php" method="post" enctype="multipart/form-data" id="uploadForm">
+            
+            <div class="form-row mt-2">
+                <div class="col-1">
+                </div>
+                <div class="col-2">
+                    <label class="my-1 mr-2" for="Nb de personnes">Nb de personnes</label>
+                    <select class="custom-select my-1 mr-sm-2" id="Nb de personnes" name="personne">
+                        <option selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>                                                            
+                    </select>
+                </div>
+                <div class="col-3">
+                    <label for="mixture">Temps de préparation (en minutes)</label>
+                    <input name="mixture" type="text" class="form-control" placeholder="10 min">
+                </div>
+                <div class="col-3">
+                    <label for="baking">Temps de cuisson (en minutes)</label>
+                    <input name="baking" type="text" class="form-control" placeholder="25 min">
+                </div>
+                <div class="col-2 text-left ml-3">
+                    <label name="categoryId" class="my-1 mr-2" for="Nb de personnes">Catégorie</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="categoryId" id="exampleRadios1" value="1">
+                        <label class="form-check-label" for="exampleRadios1"> Salée</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="categoryId" id="exampleRadios2" value="2">
+                        <label class="form-check-label" for="exampleRadios2">
+                            Sucrée
+                        </label>
+                    </div>
+                </div>
+                <div class="col-1">
+                </div>           
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-3">
+                </div> 
+                <div class="col-6 form-group">
+                    <label for="nameRecipe">Nom de la recette</label>
+                    <textarea name="nameRecipe" class="form-control" id="recette" rows="1"></textarea>
+                </div>
+                <div class="col-3">
+                </div> 
+            </div>
+            <div class="row mt-5">
+                <div class="col-12 form-group">
+                    <label for="ingredients">Ingrédients</label>
+                    <textarea name="ingredients" class="form-control" id="ingredients" rows="10"></textarea>
+                </div>
+                <div class="col-12 form-group mt-3">
+                    <label for="recipe">Recette</label>
+                    <textarea name="recipe" class="form-control" id="Recette" rows="12"></textarea>
+                </div>
+            </div> 
+            <div class="mt-5"> 
+                <div class="custom-file">
+                    <!-- <input type="file" class="custom-file-input" id="customFile" name="file"> 
+                    <label class="custom-file-label" for="customFile">Choisissez votre image. Seulement jpg ou png. Taille de fichier max : 2Mo.</label> -->
+                    <label for="file">Télécharger une image (jpeg ou png - 200Ko max)</label>
+                    <br>
+                    <input type="file" id="avatar" name="file" accept="image/png, image/jpeg">
+             
+             </div>        
+                <div class="container text-center form-group signin mb-5 mt-5">
+                    <button type="submit" class="btn btn-success text-uppercase send">Enregistrer la recette</button>
+                </div>
+            </div>
+        </form>
+        <!-- créer une class invisibleBlock avec un display: None -->
+        <div id="invisibleFormErrors" class="invisibleBlock">
+            <!-- fond rouge, etc... -->
+        </div>
+    </div>
+</section>
+
+

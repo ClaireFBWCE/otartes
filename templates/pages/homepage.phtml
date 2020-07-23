@@ -1,22 +1,5 @@
 <section>
-    <?php if($messageService->getMessage() === "user_connected"): ?>   
-        <div class="row">
-            <div class="col-12 file-alert">
-                <div class="alert alert-success text-center" role="alert">
-                Vous êtes bien connecté(e) en tant que <strong><?php
-                if (isset($_SESSION['user']))
-                {
-                    print($_SESSION['user']['firstname']);
-                    print($_SESSION['user']['lastname']);
-                } ?></strong>
-                </div>
-                <div class="col-sm-12 mt-3 mb-5 text-center">
-                    <a href="disconnectProcess.php"><button class="btn btn-primary text-uppercase">Me déconnecter</button></a>    
-                    <!-- /////// -->
-                </div>
-            </div>
-        </div>
-    <?php endif; ?> 
+
 
     <?php if($messageService->getMessage() === "user_disconnected"): ?>  
         <div class="row">
@@ -32,19 +15,21 @@
         <div class="row">
             <div class="col-12 file-alert">
                 <div class="alert alert-success text-center" role="alert">
-                Merci pour votre inscription, vous pouvez désormais vous connecter en cliquant <a href="connection.php">ici</a>
+                Merci pour votre inscription, vous pouvez désormais vous connecter <a href="connection.php"><button class="btn btn-primary text-uppercase">Me connecter</button></a>    
                 </div>
             </div>
         </div>
     <?php endif; ?>
 </section>
+
+
 <section class="container"> 
     <div>        
         <div class="row">
             <div class="col-12 pt-5 pb-5 text-center">
                 <div>
                     <h2>Ô Tartes&nbsp;!</h2>
-                    <h3>Découvrez les  meilleures tartes salées et sucrées du moment. <br>Proposez votre recette fameuse et partagez là au plus grand nombre&nbsp;!
+                    <h3>Découvrez les  meilleures tartes salées et sucrées du moment. <br>Proposez votre recette fameuse et partagez-la au plus grand nombre&nbsp;!
                     </h3>
                 </div>
             </div>
@@ -56,13 +41,16 @@
                 <img src="assets/img/farine_otartes.jpg" alt="lorem ipsum" class="img-fluid">
             </div>
             <div class="col-sm-6">
-                <p>
-                    Nous sélectionnons et collectons pour vous les meilleures recettes de tartes salées et tarte sucrées.
-                </p>
-                <p>
-                    Vous trouverez, tout au long de votre navigation, des infos sur les recettes, les ingrédients et les  petits plus pour préparer LA tarte qu'il vous faut.
-                    N'hésitez pas également à partager vos recettes par <a href="#">ici</a>
-                </p>
+                <ul>
+                    <li><p>Nous sélectionnons et collectons pour vous les meilleures recettes de tartes salées et tartes sucrées.</p></li>
+                    <li><p>Vous trouverez, tout au long de votre navigation, des infos sur les recettes, les ingrédients et les  petits plus pour préparer <strong>LA tarte</strong> qu'il vous faut.</p></li>
+                    <?php if(isset($_SESSION['user'])): ?>
+                        <li><p>N'hésitez pas à partager vos recettes <a href="upload.php" class="btn btn-primary">Partager ma recette</a>
+                    <?php else: ?>                   
+                        <li><p>N'hésitez pas à partager vos recettes <a href="shareRecipes.php" class="btn btn-primary">Partager ma recette</a>
+                    <?php endif; ?>              
+
+                </ul>            
             </div>
             <div class="col-sm-1">
             </div>
@@ -73,30 +61,30 @@
         <h2>Ô récentes Tartes&nbsp;!</h2>
         </div>
         <!-- < ?php foreach($recentProducts as $key => $recentProduct): ? > -->
-        <?php foreach($recentProducts as $recentProduct): ?>
+        <?php foreach($recentProducts as $productForCard): ?>
             <div class="col-md-4">
-                <?php require('templates/pages/card-recent.phtml');?>
+                <?php require('templates/pages/card.phtml');?>
             </div>
         <?php endforeach;?>
 
     </div>
     <div class="row homepage">
-        <div class="col-12 text-center mb-5">
+        <div class="col-12 text-center mb-5 mt-5">
             <a href="allCategoryProducts.php?category_id=1"><h2>Ô Tartes&nbsp;! salées</h2></a>
         </div>
-        <?php foreach($saltedProducts as $saltedProduct): ?>
+        <?php foreach($saltedProducts as $productForCard): ?>
             <div class="col-md-4">
-                <?php require('templates/pages/card-3salty.phtml');?>
+                <?php require('templates/pages/card.phtml');?>
             </div>
         <?php endforeach;?>
     </div>
     <div class="row homepage">
-        <div class="col-12 text-center mb-5">
+        <div class="col-12 text-center mb-5 mt-5">
             <a href="allCategoryProducts.php?category_id=2"><h2>Ô Tartes&nbsp;! sucrées</h2></a>        
         </div>
-        <?php foreach($sweetProducts as $sweetProduct): ?>
+        <?php foreach($sweetProducts as $productForCard): ?>
             <div class="col-md-4">
-                <?php require('templates/pages/card-3sweet.phtml');?>
+                <?php require('templates/pages/card.phtml');?>
             </div>
         <?php endforeach;?>
     </div>

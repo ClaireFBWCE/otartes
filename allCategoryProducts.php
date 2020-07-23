@@ -21,9 +21,14 @@ if($category_id === '1') {
     $title = 'Toutes nÔs Tartes! sucrées';  
 }
 
+// récupérer les produits
 $productRepo = new ProductRepository();
 $allSweetProducts = $productRepo->getProductByCategory($category_id);
-// $allSweetProducts = $productRepo->get3SweetPies();
+
+
+// récupérer les users
+$userRepo = new UserRepository();
+$allUsers = $userRepo->getAllUsers();
 
 // Views dont on a besoin
 require('templates\header.phtml');

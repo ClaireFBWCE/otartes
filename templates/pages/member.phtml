@@ -1,0 +1,36 @@
+<section>
+    <?php if($messageService->getMessage() === "user_connected"): ?>   
+        <div class="row">
+            <div class="col-12 file-alert">
+                <div class="alert alert-success text-center" role="alert">
+                Vous êtes bien connecté(e) en tant que <br><strong><?php
+                if (isset($_SESSION['user']))
+                {
+                    print($_SESSION['user']['firstname']. ' ');
+                    print($_SESSION['user']['lastname']);
+                } ?></strong>
+                </div>
+                <div class="col-sm-12 mt-3 mb-5 text-center">
+                    <a href="member.php"><button class="btn btn-primary text-uppercase">Mes recettes</button></a>    
+                </div>
+            </div>
+        </div>
+    <?php endif; ?> 
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-5 mb-5 text-center">
+                <a href="upload.php"><button class="btn btn-primary text-uppercase">Télécharger une nouvelle recette</button></a>    
+            </div>
+        </div>
+        <div class="row mb-5">
+            <?php foreach($memberProducts as $productForCard): ?>
+                <div class="col-md-4">
+                    <?php require('templates/pages/card.phtml');?>
+                </div>
+            <?php endforeach;?>
+        </div>
+
+    </div>
+
+</section>

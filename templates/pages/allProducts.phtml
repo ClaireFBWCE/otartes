@@ -1,13 +1,16 @@
 <section class="bloc-intro">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 mt-5 mb-5 text-center">
+            <div class="col-12 mt-5 mb-5 text-center">
                 <h1>Toutes les Ô Tartes</h1>
-                <img src="assets/img/<?=$allPies['image']?>" alt="<?=$allPies['alt']?>" class="img-responsive fit-image">
-                <div class="box box-small">
-                    <h4><?=$allPies['name']?></h4>
-                </div>
             </div>
+        </div>
+        <div class="row mt-2 mb-5">
+            <?php foreach($allProducts as $productForCard): ?>
+                <div class="col-md-4">
+                    <?php require('templates/pages/card.phtml');?>
+                </div>
+            <?php endforeach;?>
         </div>
     </div>
 </section>

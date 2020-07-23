@@ -27,20 +27,16 @@ $userRepo = new UserRepository();
 $connectionService = new ConnectionService();
 $userConnection = $connectionService->isUserConnected();
 
+// récupérer les users
+$userRepo = new UserRepository();
+$allUsers = $userRepo->getAllUsers();
 
 // récupérer les  produits
 $productRepo = new ProductRepository();
 $allproducts = $productRepo->getAllPies();
-
 $recentProducts = $productRepo->get6RecentPies();
-
 $saltedProducts = $productRepo->get3SaltedPies();
-// die(var_dump($saltedProducts));
-
 $sweetProducts = $productRepo->get3SweetPies();
-
-// die(var_dump($oneProduct));
-// $checkIfImageExists = $productRepo->checkImage('image');
 
 
 // // vérifier que la connection à la bdd fonctionne

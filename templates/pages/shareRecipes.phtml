@@ -1,0 +1,63 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-5 mb-5 text-center">
+                <p>Vous souhaitez partager une recette? Rendez-vous sur votre compte</p>
+                <a href="connection.php"><button class="btn btn-primary text-uppercase">Me connecter</button></a> 
+                <a href="signup.php"><button class="btn btn-primary text-uppercase">S'inscrire</button></a>    
+   
+            </div>
+            <div class="col-12 mt-5 mb-2 text-center">
+                <h2>Les dernières recettes partagées</h2>
+            </div>
+        </div>
+
+
+        
+        <div class="row mt-5 mb-5">
+            <?php foreach($allProductsMembers as $productForCard): ?>
+                <div class="col-md-4">
+                    <?php require('templates/pages/card.phtml');?>
+                </div>
+            <?php endforeach;?>
+
+        </div>
+
+
+        <!-- <div class="row mt-5 mb-5">
+            <div class="col-md-4">
+                <div class="cardbox">
+                    <a href="#">
+                        <img src="#" alt="" class="img-responsive fit-image text-center" width="350">
+                        <div class="box box-small">
+                            <h4>Le Nom de ma recette</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="cardbox">
+                    <a href="#">
+                        <img src="#" alt="" class="img-responsive fit-image text-center" width="350">
+                        <div class="box box-small">
+                            <h4>Le Nom de ma recette</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="cardbox">
+                    <a href="#">
+                        <img src="#" alt="" class="img-responsive fit-image text-center" width="350">
+                        <div class="box box-small">
+                            <h4>Le Nom de ma recette</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>           
+        </div> -->
+
+        <!-- </div> -->
+    </div>
+
+</section>

@@ -1,5 +1,9 @@
 <?php
+
+session_start();
+
 require_once 'models/Autoloader.php';
+require_once 'models/FunctionService.php';
 
 
 // vérifier que l'id existe et récupérer l'id d'une pie à afficher
@@ -7,23 +11,21 @@ require_once 'models/Autoloader.php';
 // die(var_dump($_GET));
 
 // $id = $_GET['id'];
+$productId = checkInGETOrRedirect('productId', 'int');
 
 
-if(isset($_GET['id'])){
-    $id = $_GET['id'];
-}else{
-    $id = 0;
-}
+$productRepo = new ProductRepository();
+$oneProduct = $productRepo->getOnePie($productId);
 
-$oneProductRepo = new ProductRepository();
-$oneProduct = $oneProductRepo->getOnePie($id);
+// récupère les users
+$userRepo = new UserRepository();
+$allUsers = $userRepo->getAllUsers();
+$oneUser = $userRepo->getOneUserById($oneProduct['user_id']);
+// die(var_dump($oneUser));
+
 
 // titre de la page
 $title = 'Ô Tartes&nbsp;!<br>' .$oneProduct['name'];
-
-
-// var_dump($oneProduct);
-
 
 // Views dont on a besoin
 require('templates\header.phtml');

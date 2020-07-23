@@ -27,19 +27,17 @@ if(isDataFromConnectionValid() === false){
 
 // On instancie les classes de base de donnée pour récupérer le user qui correspond à l'email rentré
 $userRepo = new UserRepository();
-
-
-// On instancie la classe ConnectionService
-$connectionService = new ConnectionService();
-
 // on récupère le user
 $user = $userRepo->getOneUserByEmail($_POST['email']);
 if (!$user) {
     throw new Exception('No User found for email ' . $_POST['email']);
 }
 
+// On instancie la classe ConnectionService
+$connectionService = new ConnectionService();
 // on connecte le user
 $connectionResult = $connectionService->connectUser($user, $_POST['password']);
+
 
 if(!$connectionResult) {
     header("Location: connection.php");
@@ -47,10 +45,10 @@ if(!$connectionResult) {
 }
 
 
-// // echo 'je suis bien connectée en tant que ' .$_POST['email'];
-
-
-header("Location: index.php");
+// echo 'je suis bien connectée en tant que ' .$_POST['email'];
+$userId = $user['id'];
+header("Location: member.php?memberId=$userId");
+die('');
 
 // On vérifie ici que les passwords sont concordants
 

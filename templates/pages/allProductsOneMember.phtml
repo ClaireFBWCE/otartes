@@ -1,0 +1,30 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-5 mb-5 text-center">
+                <h2>Toutes les recettes de <?= $oneUser['firstname'] . ' ' . $oneUser['lastname']?></h2>            
+            </div>
+        </div>
+        <div class="row mt-2 mb-5">
+            <?php foreach($memberProducts as $productForCard): ?>
+                <!-- < ?php if(): ?> -->
+                    <div class="col-md-4">
+                        <?php require('templates/pages/card.phtml');?>
+                    </div>
+                <!-- < ?php endif; ?> -->
+            <?php endforeach;?>
+        </div>
+        <div class="row mt-5 mb-5">
+            <div class="col-4 text-center">
+                <a href="index.php" class="btn btn-primary">Retour Accueil</a>
+            </div>
+            <div class="col-4 text-center">
+                <a href="allProducts.php" class="btn btn-primary">Toutes nos Ô Tartes</a>
+            </div>
+            <div class="col-4 text-center">
+                <a href="shareRecipes.php" class="btn btn-primary">Partager une recette</a>
+            </div>
+        </div>
+    </div>
+
+</section>

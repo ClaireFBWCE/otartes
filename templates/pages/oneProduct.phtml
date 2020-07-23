@@ -1,8 +1,22 @@
 <section class="bloc-intro">
-    <div class="container introImage">
+    <div class="container">
         <div class="row text-center">
-            <div class="col-12">
-                <h2 class="mt-5 mb-5"><?=$oneProduct['name']?></h2>
+            <div class="oneProduct col-12">
+                <h2 class="mt-5"><?=$oneProduct['name']?></h2>
+                <?php if(isset($oneProduct['user_id']) && ($oneProduct['user_id'] !== '0')): ?>
+                    <div class="memberProduct mb-5" >            
+                        <h3>Recette partagée par 
+                            <a href="allProductsOneMember.php?memberId=<?= $oneUser['id'] ?>">
+                            <?php foreach($allUsers as $user)
+                            {if ($user['id'] === $oneProduct['user_id']) {
+                                print($user['firstname'] . ' '. $user['lastname']);
+                                break;
+                            }} ?> 
+                            </a>
+                        </h3>
+                    </div>
+                <?php endif;?>
+
             </div>
         </div>
         <div class="row">
@@ -14,7 +28,7 @@
                         <ul>
                             <li><p class="">Nombre de personnes : <?=$oneProduct['number']?></p></li>
                             <li><p class="">Temps de préparation : <?=$oneProduct['mixture']?></p></li>
-                            <li><p class="">Temps de préparation : <?=$oneProduct['mixture']?></p></li>
+                            <li><p class="">Temps de cuisson : <?=$oneProduct['baking']?></p></li>
                         </ul>
                     </div>
                     <div class="col-1">
@@ -32,20 +46,26 @@
         <div class="row mt-5">
             <div class="col-lg-4">
                 <div class="">
-                    <h2 class="mb-3 text-uppercase"><span>Ingrédients</span></h2>  <!-- on ajoute le <span> pour pouvoir faire du CSS juste sur le mot. Sinon àn fait sur la div entière -->
-                    <ul><?=$oneProduct['ingredients']?></ul>
+                    <h2 class="mb-3 text-uppercase"><span>Ingrédients</span></h2>  
+                    <ul><?=$oneProduct['ingredients']?><br></ul>
                 </div>
             </div>
             <div class="col-lg-8">
                 <div class="recette">
-                <h2 class="mb-3 text-uppercase"><span>Recette</span></h2>  <!-- on ajoute le <span> pour pouvoir faire du CSS juste sur le mot. Sinon àn fait sur la div entière -->
+                <h2 class="mb-3 text-uppercase"><span>Recette</span></h2> 
                     <ul><?=$oneProduct['recipe']?></ul>   
                 </div>
             </div>
         </div>
         <div class="row mt-5 mb-5">
-            <div class="col-12 text-center">
+            <div class="col-4 text-center">
                 <a href="index.php" class="btn btn-primary">Retour Accueil</a>
+            </div>
+            <div class="col-4 text-center">
+                <a href="allCategoryProducts.php?category_id=1" class="btn btn-primary">Toutes nos Ô Tartes salées</a>
+            </div>
+            <div class="col-4 text-center">
+                <a href="allCategoryProducts.php?category_id=2" class="btn btn-primary">Toutes nos Ô Tartes sucrées</a>
             </div>
         </div>
     </div>

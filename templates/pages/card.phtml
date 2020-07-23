@@ -1,0 +1,23 @@
+<div class="cardbox">
+    <a href="oneProduct.php?productId=<?= $productForCard['id'] ?>">    
+    <img src="assets/img/<?=$productForCard['image']?>" alt="<?=$productForCard['alt']?>" class="img-responsive fit-image text-center" width="350">
+    <div class="box box-small">
+        <!-- <h4>< ?=$recentProducts[$key]['name']?></h4> // ici on a besoin de $key car on va chercher dans $recentProducts-->
+        <!-- en dessous on n'a pas besoin de [$key] car  on va chercher dans $recentProduct - sans le S - donc on remplit cette variable à chaque tour de boucle dans HP -->
+        <h4><?=$productForCard['name']?></h4> 
+    </div>
+    </a>
+    <?php if($productForCard['user_id'] !== '0'): ?>
+        <a href="allProductsOneMember.php?memberId=<?= $productForCard['user_id'] ?>">
+            <div class="member text-right" >            
+                <h5>By <?php foreach($allUsers as $user)
+                    { 
+                        if ($user['id'] === $productForCard['user_id']) {
+                        print($user['firstname'] . ' '. $user['lastname']);
+                        break;
+                    }} ?> </h5>
+            </div>
+        </a>
+    <?php endif;?>
+
+</div>
