@@ -1,0 +1,28 @@
+<section class="bloc-intro">
+    <div class="container">
+        <div class="row mt-5 mb-5">
+            <?php foreach($allCategoryProducts as $productForCard): ?>
+                <div class="col-md-4">
+                    <?php require('templates/pages/card.phtml');?>
+                </div>
+            <?php endforeach;?>
+        </div>
+        <div class="row mt-2 mb-5">
+            <div class="col-3"></div>
+            <div class="col-3 text-center">
+                <a href="index.php" class="btn btn-primary">Retour accueil</a>
+            </div>
+            <div class="col-3">
+                <a href="allProducts.php" class="btn btn-primary">Toutes nos Ô Tartes</a>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+

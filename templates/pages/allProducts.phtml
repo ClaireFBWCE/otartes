@@ -1,16 +1,22 @@
 <section class="bloc-intro">
     <div class="container">
-        <div class="row">
-            <div class="col-12 mt-5 mb-5 text-center">
-                <h1>Toutes les Ô Tartes</h1>
-            </div>
-        </div>
         <div class="row mt-2 mb-5">
             <?php foreach($allProducts as $productForCard): ?>
                 <div class="col-md-4">
                     <?php require('templates/pages/card.phtml');?>
                 </div>
             <?php endforeach;?>
+        </div>
+        <div class="row mt-2 mb-5">
+            <div class="col-4 text-center">
+                <a href="index.php" class="btn btn-primary">Retour accueil</a>
+            </div>
+            <div class="col-4 text-center">
+                <a href="allCategoryProducts.php?category_id=1" class="btn btn-primary">Nos Ô Tartes salées</a>
+            </div>
+            <div class="col-4 text-center">
+                <a href="allCategoryProducts.php?category_id=2" class="btn btn-primary">Nos Ô Tartes sucrées</a>
+            </div>
         </div>
     </div>
 </section>

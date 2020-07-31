@@ -3,7 +3,7 @@ session_start();
 
 require_once 'models/Autoloader.php';
 
-$title = 'Tous les produits baby !';  
+$title = 'Tous nos Ô Tartes !';  
 
 
 // récupérer les users

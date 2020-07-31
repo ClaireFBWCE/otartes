@@ -185,6 +185,11 @@ header {
     color:  rgb(58, 92, 65);
 }
 
+.homepage #categ a h2:hover{
+    opacity: .8;
+    color:  rgb(58, 92, 65);
+}
+
 .homepage a:visited{
     color: #0F1410;
 }

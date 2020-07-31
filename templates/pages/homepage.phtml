@@ -68,7 +68,7 @@
     </div>
 
     <div class="row homepage">
-        <div class="col-12 text-center mb-5 mt-5">
+        <div class="col-12 text-center mb-5 mt-5" id="categ">
             <a href="allCategoryProducts.php?category_id=1"><h2>Ô Tartes&nbsp;! salées</h2></a>
         </div>
     </div>
@@ -81,7 +81,7 @@
     </div>
 
     <div class="row homepage">
-        <div class="col-12 text-center mb-5 mt-5">
+        <div class="col-12 text-center mb-5 mt-5" id="categ">
             <a href="allCategoryProducts.php?category_id=2"><h2>Ô Tartes&nbsp;! sucrées</h2></a>        
         </div>
     </div>
@@ -91,5 +91,12 @@
                 <?php require('templates/pages/card.phtml');?>
             </div>
         <?php endforeach;?>
+    </div>
+    <div class="row mt-2 mb-5">
+        <div class="col-4"></div>
+        <div class="col-4 text-center">
+            <a href="allProducts.php" class="btn btn-primary">Toutes nos Ô Tartes</a>
+        </div>
+        <div class="col-4"></div>
     </div>
 </section>

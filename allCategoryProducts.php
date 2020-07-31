@@ -23,7 +23,7 @@ if($category_id === '1') {
 
 // récupérer les produits
 $productRepo = new ProductRepository();
-$allSweetProducts = $productRepo->getProductByCategory($category_id);
+$allCategoryProducts = $productRepo->getProductByCategory($category_id);
 
 
 // récupérer les users
@@ -32,7 +32,7 @@ $allUsers = $userRepo->getAllUsers();
 
 // Views dont on a besoin
 require('templates\header.phtml');
-require('templates\pages\allSweetProducts.phtml');
+require('templates\pages\allCategoryProducts.phtml');
 require('templates\footer.phtml');
 
 
