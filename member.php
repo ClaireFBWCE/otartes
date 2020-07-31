@@ -6,8 +6,10 @@ require_once 'models/Autoloader.php';
 require_once 'models/FunctionService.php';
 
 $title = "Toutes mes recettes 😋";
-$memberId = checkInGETOrRedirect('memberId', 'int');
 
+// die(var_dump($_SESSION));
+
+$memberId = checkInGETOrRedirect('memberId', 'int');
 
 secureUserId($memberId);
 // die(var_dump($userId));

@@ -107,4 +107,21 @@ class UserRepository{
         return $user;
     }
 
+    /*
+    // utilisée dans update.php pour redirection
+    public function getUserIdByProductId($productId)
+    {
+        $userSQL = 'SELECT `user_id` FROM otartes_product WHERE id = :productID';
+        $query = $this->dbConnect->pdo->prepare($userSQL);
+
+        if(!$query->execute([':productID' => $productId])){
+            return false;
+        }
+        $user = $query->fetch(PDO::FETCH_ASSOC);
+
+        return $user;
+    }
+    */
+    
+
 }

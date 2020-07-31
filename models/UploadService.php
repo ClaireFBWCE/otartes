@@ -14,7 +14,25 @@ class UploadService {
         }
     }
 
-    public function checkUploadedFileType ()
+    /**
+     * return filename if there is one or null
+     */
+    public function checkAndUploadFileForRecipeUpdate(int $productId):bool
+    {        
+        // verifier qu'on a bien un nom de fichier
+        $name = $_FILES['file']['name'];
+        if(!empty($name)){ 
+            $this->checkUploadedFileTypeForUpdate($productId);
+            $this->getUploadedFile();
+            $mustImageBeSavedInDB = true;
+        } else {
+            $mustImageBeSavedInDB = false;
+        }
+
+        return $mustImageBeSavedInDB;
+    }
+
+    public function checkUploadedFileType()
     {     
       
         $type = $_FILES['file']['type']; // on récupère le type
@@ -27,6 +45,23 @@ class UploadService {
         $size = $_FILES['file']['size'];
         if($size > self::MAX_SIZE){
             header("Location: upload.php");
+            die();
+        }
+    }
+
+    public function checkUploadedFileTypeForUpdate(int $productId)
+    {     
+      
+        $type = $_FILES['file']['type']; // on récupère le type
+        if(!in_array($type, self::VALID_TYPES)){ // savoir si le 'type' est dans le tableau. Si ce n'est pas dans la tableau, on s'en va
+            header("Location: edit.php?productId=$productId");
+            die();
+        }
+        
+        // verifier la taille
+        $size = $_FILES['file']['size'];
+        if($size > self::MAX_SIZE){
+            header("Location: edit.php?productId=$productId");
             die();
         }
     }
@@ -48,7 +83,7 @@ class UploadService {
 
     }
 
-    public function getUploadedFile ()
+    public function getUploadedFile()
     {
         // //récupérer le dossier actuel - pour connaitre le chemin du dossier
         // // pour le moment il est stocké ici : C:\wamp64\tmp\phpB587.tmp mais on veut le stocker dans le dossier upload
@@ -89,7 +124,6 @@ class UploadService {
     {
         if(!is_numeric($_POST['baking']) || !is_numeric($_POST['mixture']))
         {
-            die('il me faut un event');
             header("Location: upload.php");
             die();
         }

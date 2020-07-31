@@ -68,12 +68,12 @@ class ProductRepository{
         return $sweetPies;
     }
 
-    public function getOnePie(int $id)
+    public function getOnePie(int $product_id)
     {
         $sql = "SELECT p.`id`, p.`name`, p.`image`, p.`alt`, p.`ingredients`, p.`recipe`, p.`mixture`, p.`baking`, p.`number`, p.user_id, p.category_id FROM otartes_product AS p WHERE p.id = :ID";
         $query = $this->database->pdo->prepare($sql);
 
-        if(!$query->execute([':ID' => $id])){
+        if(!$query->execute([':ID' => $product_id])){
             return null;
         }        
         
@@ -151,5 +151,71 @@ class ProductRepository{
     }
 
 
+    public function delete($product_id) : bool {
+        
+        // echo 'Demande de supression du produit: "'.$product_id.'"<br>';
+        // die();
 
+        $SQL = 'DELETE FROM `otartes_product` WHERE id = :productId';
+        $query = $this->database->pdo->prepare($SQL);
+        $results = $query->execute(['productId' => $product_id]);
+
+        return $results;
+    }
+
+    public function updateWithNewImage(array $productToUpdate,  int $productId) : bool {
+        
+        // echo 'Demande de supression du produit: "'.$product_id.'"<br>';
+        // die(var_dump($productToUpdate, $productId));
+
+        $SQL = 'UPDATE otartes_product SET `name`= :nom, `image` = :photo, `alt` = :alt, 
+        `ingredients` = :ingredient, `recipe` = :recipe, `mixture` = :mixture, 
+        `baking` = :baking, `number` = :nbpersonne, `category_id` = :categoryId
+        WHERE id = :productId';
+        $query = $this->database->pdo->prepare($SQL);
+        $results = $query->execute([
+            ':nom'          => $productToUpdate['name'],
+            ':photo'        => $productToUpdate['image'],
+            ':alt'          => $productToUpdate['alt'],
+            ':ingredient'   => $productToUpdate['ingredient'],
+            ':recipe'       => $productToUpdate['recipe'],
+            ':mixture'      => $productToUpdate['mixture'],
+            ':baking'       => $productToUpdate['baking'],
+            ':nbpersonne'   => $productToUpdate['nb'],
+            ':categoryId'   => $productToUpdate['categoryId'],
+            ':productId'    => $productId,
+            ]);
+
+        return $results;
+        // die(var_dump($results));
+    }
+
+    public function updateWithoutImage(array $productToUpdate,  int $productId) : bool {
+        
+        // echo 'Demande de supression du produit: "'.$product_id.'"<br>';
+        // die(var_dump($productToUpdate, $productId));
+
+        $SQL = 'UPDATE otartes_product SET `name`= :nom, 
+        `ingredients` = :ingredient, `recipe` = :recipe, `mixture` = :mixture, 
+        `baking` = :baking, `number` = :nbpersonne, `category_id` = :categoryId
+        WHERE id = :productId';
+        $query = $this->database->pdo->prepare($SQL);
+        $results = $query->execute([
+            ':nom'          => $productToUpdate['name'],
+            ':ingredient'   => $productToUpdate['ingredient'],
+            ':recipe'       => $productToUpdate['recipe'],
+            ':mixture'      => $productToUpdate['mixture'],
+            ':baking'       => $productToUpdate['baking'],
+            ':nbpersonne'   => $productToUpdate['nb'],
+            ':categoryId'   => $productToUpdate['categoryId'],
+            ':productId'    => $productId,
+            ]);
+
+        return $results;
+        // die(var_dump($results));
+    }
 }
+/* Test UPDATE
+UPDATE `otartes_product` SET `name` = 'jefaisuneupdate', `image` = 'couleurs-otartes.JPG', `alt` = 'sdfsq', `ingredients` = 'qfq', `recipe` = 'qfq', `mixture` = '35', `baking` = '23', `number` = '15'
+WHERE id = 50;
+*/

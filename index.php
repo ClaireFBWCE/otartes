@@ -2,6 +2,8 @@
 session_start();
 
 require_once 'models/Autoloader.php';
+require_once 'models/FunctionService.php';
+
 
 $title = 'Bienvenue sur Ô Tartes&nbsp;!';  
 
@@ -37,6 +39,8 @@ $allproducts = $productRepo->getAllPies();
 $recentProducts = $productRepo->get6RecentPies();
 $saltedProducts = $productRepo->get3SaltedPies();
 $sweetProducts = $productRepo->get3SweetPies();
+// $allProductMember = $productRepo->getProductByUserID($memberId);
+// die(var_dump($_SESSION));
 
 
 // // vérifier que la connection à la bdd fonctionne

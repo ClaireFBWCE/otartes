@@ -138,8 +138,12 @@ header {
     border: 2px solid #898d89;
 }
 
-.cardbox>a {
+.cardbox #nomember>a {
     color: #898d89;    
+}
+
+.cardbox #nomember {
+    margin-top:40px;    
 }
 
 .cardbox {
@@ -307,4 +311,25 @@ footer .contact a:visited{
     font-size: 1.5rem;
     color: #51aa66; 
     margin: -70px auto 80px auto;
+}
+
+/* Page Delete et Update */
+
+.cardbox .crud{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    margin: 10px auto 0px auto;
+}
+
+.cardbox .crud>li>a{
+    color: #C2AD92; 
+}
+
+.cardbox .crud #delete{
+    margin-right: 15px
+}
+
+.cardbox .membercrud{
+    margin-bottom: -40px;
 }
