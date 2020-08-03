@@ -25,7 +25,7 @@ $fileName = $_FILES['file']['name'];
 $fileType = $_FILES['file']['type'];
 $fileSize = round($_FILES['file']['size']/1024, 2); // passer de octets à ko, et garder une précision de 2 chiffres après la virgule
 // var_dump($fileSizeRound);
-// $filePath = $destinationPath;
+$filePath = $destinationPath;
 
 // die(var_dump($_REQUEST));
 // die(var_dump($_FILES));
