@@ -2,6 +2,7 @@
 
 session_start();
 
+require_once 'config'.DIRECTORY_SEPARATOR.'config.php';
 require_once 'models/Autoloader.php';
 require_once 'models/FunctionService.php';
 
@@ -25,9 +26,9 @@ $oneUser = $userRepo->getOneUserById($oneProduct['user_id']);
 
 
 // titre de la page
-$title = 'Ô Tartes&nbsp;!<br>' .$oneProduct['name'];
+$title = 'Ô Tartes&nbsp;!<br>' .utf8_encode($oneProduct['name']);
 
 // Views dont on a besoin
-require('templates\header.phtml');
-require('templates\pages\oneProduct.phtml');
-require('templates\footer.phtml');
+require('templates' . DIRECTORY_SEPARATOR . 'header.phtml');
+require('templates' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . 'oneProduct.phtml');
+require('templates' . DIRECTORY_SEPARATOR . 'footer.phtml');

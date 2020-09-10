@@ -1,12 +1,12 @@
 <?php
+
 session_start();
 
+require_once 'config'.DIRECTORY_SEPARATOR.'config.php';
 require_once 'models/Autoloader.php';
 require_once 'models/FunctionService.php';
 
-
 $title = 'Bienvenue sur Ô Tartes&nbsp;!';  
-
 
 // voir si la session fonctionne bien
 // if (isset( $_SESSION['user'])){
@@ -22,8 +22,8 @@ $userConnection = $userRepo->userIsConnected();
 // $userDisconnected = $userRepo->disconnectUser();
 // die(var_dump($userDisconnected));*/
 
+// die("ICI juste avant UserRepo");
 // Connexion User
-
 $userRepo = new UserRepository();
 
 $connectionService = new ConnectionService();
@@ -41,18 +41,17 @@ $saltedProducts = $productRepo->get3SaltedPies();
 $sweetProducts = $productRepo->get3SweetPies();
 // $allProductMember = $productRepo->getProductByUserID($memberId);
 // die(var_dump($_SESSION));
-
-
 // // vérifier que la connection à la bdd fonctionne
 // $userConnection = new UserConnection();
 // $userConnection->connectUser('test@test.fr', 'testest');
 
+
 $messageService = new MessageService();
 
 // Views dont on a besoin
-require('templates\header.phtml');
-require('templates\pages\homepage.phtml');
-require('templates\footer.phtml');
+require('templates' . DIRECTORY_SEPARATOR . 'header.phtml');
+require('templates' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . 'homepage.phtml');
+require('templates' . DIRECTORY_SEPARATOR . 'footer.phtml');
 
 $messageService->deleteMessage();
 

@@ -1,10 +1,11 @@
 <?php
 session_start();
 
+require_once 'config'.DIRECTORY_SEPARATOR.'config.php';
 require_once 'models/Autoloader.php';
 require_once 'models/FunctionService.php';
 
-$title = 'Updater baby !';  
+$title = 'Page d\'update';  
 
 $uploadService = new UploadService();
 

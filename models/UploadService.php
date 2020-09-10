@@ -3,7 +3,7 @@
 class UploadService {
 
     public const VALID_TYPES = ['image/jpeg', 'image/png'];
-    public const MAX_SIZE = 200000; //en octet
+    public const MAX_SIZE = 400000; //en octet
 
     public function checkUploadedFile()
     {        

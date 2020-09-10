@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+require_once 'config'.DIRECTORY_SEPARATOR.'config.php';
 require_once 'models/Autoloader.php';
 
 
@@ -30,9 +31,10 @@ $allCategoryProducts = $productRepo->getProductByCategory($category_id);
 $userRepo = new UserRepository();
 $allUsers = $userRepo->getAllUsers();
 
+
 // Views dont on a besoin
-require('templates\header.phtml');
-require('templates\pages\allCategoryProducts.phtml');
-require('templates\footer.phtml');
+require('templates' . DIRECTORY_SEPARATOR . 'header.phtml');
+require('templates' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . 'allCategoryProducts.phtml');
+require('templates' . DIRECTORY_SEPARATOR . 'footer.phtml');
 
 

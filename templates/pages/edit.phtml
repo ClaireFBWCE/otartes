@@ -52,7 +52,7 @@
                 </div> 
                 <div class="col-6 form-group">
                     <label for="nameRecipe">Nom de la recette</label>
-                    <textarea name="nameRecipe" class="form-control" id="recette" rows="1"><?= $editProduct['name'] ?></textarea>
+                    <textarea name="nameRecipe" class="form-control" id="recette" rows="1"><?= utf8_encode($editProduct['name']) ?></textarea>
                 </div>
                 <div class="col-3">
                 </div> 
@@ -60,13 +60,13 @@
             <div class="row mt-5">
                 <div class="col-12 form-group">
                     <label for="ingredients">Ingrédients</label>
-                    <textarea name="ingredients" class="form-control" id="ingredients" rows="10"><?= $editProduct['ingredients'] ?></textarea>
+                    <textarea name="ingredients" class="form-control" id="ingredients" rows="10"><?= utf8_encode($editProduct['ingredients']) ?></textarea>
                 </div>
 
 
                 <div class="col-12 form-group mt-3">
                     <label for="recipe">Recette</label>
-                    <textarea name="recipe" class="form-control" id="Recette" rows="12"><?= $editProduct['recipe'] ?></textarea>
+                    <textarea name="recipe" class="form-control" id="Recette" rows="12"><?= utf8_encode($editProduct['recipe']) ?></textarea>
                 </div>
             </div> 
             <div class="mt-4"> 

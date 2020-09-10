@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row text-center">
             <div class="oneProduct col-12">
-                <h2 class="mt-5"><?=$oneProduct['name']?></h2>
+                <h2 class="mt-5"><?=utf8_encode($oneProduct['name'])?></h2>
                 <?php if(isset($oneProduct['user_id']) && ($oneProduct['user_id'] !== '0')): ?>
                     <div class="memberProduct mb-5" >            
                         <h3>Recette partagée par 
@@ -36,7 +36,7 @@
                 </div>                
             </div> 
             <div class="col-6 text-center">
-                <img src="assets/img/<?=$oneProduct['image']?>" alt="<?=$oneProduct['alt']?>" class="img-responsive fit-image" width="500">
+                <img src="assets/img/<?=$oneProduct['image']?>" alt="<?=utf8_encode($oneProduct['alt'])?>" class="img-responsive fit-image" width="500">
             </div> 
         </div>     
     </div>
@@ -47,13 +47,13 @@
             <div class="col-lg-4">
                 <div class="">
                     <h2 class="mb-3 text-uppercase"><span>Ingrédients</span></h2>  
-                    <ul><?=$oneProduct['ingredients']?><br></ul>
+                    <ul><?=utf8_encode($oneProduct['ingredients'])?><br></ul>
                 </div>
             </div>
             <div class="col-lg-8">
                 <div class="recette">
                 <h2 class="mb-3 text-uppercase"><span>Recette</span></h2> 
-                    <ul><?=$oneProduct['recipe']?></ul>   
+                    <ul><?=utf8_encode($oneProduct['recipe'])?></ul>   
                 </div>
             </div>
         </div>

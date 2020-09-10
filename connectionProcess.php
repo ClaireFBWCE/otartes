@@ -1,9 +1,10 @@
 <?php
 session_start();
 
+require_once 'config'.DIRECTORY_SEPARATOR.'config.php';
 require_once 'models/Autoloader.php';
 
-$title = "On process la connexion baby !";
+$title = "On process la connexion";
 
 // On récupère les données du formulaire d'inscription en POST
 function isDataFromConnectionValid(): bool{
