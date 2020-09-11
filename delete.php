@@ -7,7 +7,6 @@ require_once 'models/FunctionService.php';
 
 $title = 'Page suppression';  
 
-// die(var_dump($_GET['productId']));
 $product_id = $_GET['productId'];
 
 // récupère les produits

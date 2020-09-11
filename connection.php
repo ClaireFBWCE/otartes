@@ -12,7 +12,3 @@ require('templates' . DIRECTORY_SEPARATOR . 'pages' . DIRECTORY_SEPARATOR . 'con
 require('templates' . DIRECTORY_SEPARATOR . 'footer.phtml');
 
 $messageService->deleteMessage();
-
-
-
-

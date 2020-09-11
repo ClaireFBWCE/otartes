@@ -1,7 +1,5 @@
 <?php
 
-// require_once 'models/Autoloader.php';
-
 class UserRepository{
 
     public $dbConnect;
@@ -11,7 +9,6 @@ class UserRepository{
         // connection à la BDD
         $this->dbConnect = new DatabaseConnection();
         $this->dbConnect->createConnection();
-
     }
 
     public function doesEmailExists(string $email): bool {
@@ -24,25 +21,15 @@ class UserRepository{
         }
         $user = $query->fetch(PDO::FETCH_ASSOC);
 
-        /*if (empty($user) === true) {
-            return false;
-        } else {
-            return true;
-        }*/
-
         return !empty($user);
     }
 
     public function createUser(string $firstname, string $lastname, string $email, string $password)
     {
-        // $stmt = $this->dbConnect->query("INSERT INTO otartes_user (firstname, lastname, email, 'password') VALUES ($firstname, $lastname, $email, $password)");
-        // return $stmt->fetchAll(PDO::FETCH_ASSOC);
         $pdo = $this->dbConnect->pdo;
 
         // insérer dans SQL
         $sql = "INSERT INTO otartes_user (`lastname`, `firstname`, `email`, `password`) VALUES (:lastname, :firstname, :email, :pass)";
-
-       // $sth = $pdo->query($sql);
 
         $stmt = $pdo->prepare($sql);
 
@@ -105,23 +92,5 @@ class UserRepository{
         }
             
         return $user;
-    }
-
-    /*
-    // utilisée dans update.php pour redirection
-    public function getUserIdByProductId($productId)
-    {
-        $userSQL = 'SELECT `user_id` FROM otartes_product WHERE id = :productID';
-        $query = $this->dbConnect->pdo->prepare($userSQL);
-
-        if(!$query->execute([':productID' => $productId])){
-            return false;
-        }
-        $user = $query->fetch(PDO::FETCH_ASSOC);
-
-        return $user;
-    }
-    */
-    
-
+    } 
 }

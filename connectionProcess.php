@@ -39,23 +39,12 @@ $connectionService = new ConnectionService();
 // on connecte le user
 $connectionResult = $connectionService->connectUser($user, $_POST['password']);
 
-
 if(!$connectionResult) {
     header("Location: connection.php");
     die();
 }
 
-
 // echo 'je suis bien connectée en tant que ' .$_POST['email'];
 $userId = $user['id'];
 header("Location: member.php?memberId=$userId");
-die('');
-
-// On vérifie ici que les passwords sont concordants
-
-// Si oui --> on revoie vers l'url index.php et on stocke l'info en session
-
-// Si non --> on renvoir vers l'url inscripton.php
-
-
-    
+die('');   

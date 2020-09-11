@@ -9,31 +9,16 @@ $title = 'Page d\'update';
 
 $uploadService = new UploadService();
 
-// $uploadService->checkUploadedFileType();
-// $destinationPath = $uploadService->getUploadedFile();
-
-// /* vérifier le fichier uploadé */
-// // var_dump($_FILES);
-// // die(var_dump($uploadService));
-
-// /* vérifier si champs bien un 'integer' */
-// $checkField = $uploadService->checkIfFieldIsNumeric();
-// // die(var_dump($checkField));
-// die(var_dump($_FILES));
-
-
+// verifs
 $productId = $_GET['productId'];
-
 $mustImageBeSavedInDB = $uploadService->checkAndUploadFileForRecipeUpdate($productId);
-/* récap du fichier uploadé */
+
+// recap du nom de fichier
 $fileName = $_FILES['file']['name'];
 
-// /* récupérer id du produit */
 
-/* récupérer les données du produit */
+// récupérer les données du produit
 $productRepo = new ProductRepository();
-// $editProduct = $productRepo->getOnePie($product_id);
-// die(var_dump($editProduct));
 
 if(!empty($_POST)){
     
@@ -50,31 +35,20 @@ if(!empty($_POST)){
         'categoryId' => intval($_POST['categoryId']),
     ];
 
-    // die(var_dump($productToUpdate));
-
-
-    // récuperer l'id du produit
-    // die(var_dump($_GET));
- 
-    // die(var_dump($productId));
-
     //récupérer la fonction qui permet l'ajout
-    //die(var_dump($mustImageBeSavedInDB, $fileName));
     if ($mustImageBeSavedInDB === true) {
         $productRepo->updateWithNewImage($productToUpdate, $productId);
     } else {
         $productRepo->updateWithoutImage($productToUpdate, $productId);
-    }
-    
+    }    
 }
 
 
 
 // rediriger sur la page du membre
-// die(var_dump($_SESSION));
 $memberId = $_SESSION['user']['id'];
 
-/* autre soluation possible mais qui fait un appel inutile à la bdd
+/* autre solution possible mais qui fait un appel inutile à la bdd
     // rediriger sur la page du membre
     $userRepo = new UserRepository();
     $member = $userRepo->getUserIdByProductId($productId); // récupère un tableau

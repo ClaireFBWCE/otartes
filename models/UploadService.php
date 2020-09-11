@@ -14,9 +14,7 @@ class UploadService {
         }
     }
 
-    /**
-     * return filename if there is one or null
-     */
+    // return filename if there is one or null
     public function checkAndUploadFileForRecipeUpdate(int $productId):bool
     {        
         // verifier qu'on a bien un nom de fichier
@@ -52,8 +50,8 @@ class UploadService {
     public function checkUploadedFileTypeForUpdate(int $productId)
     {     
       
-        $type = $_FILES['file']['type']; // on récupère le type
-        if(!in_array($type, self::VALID_TYPES)){ // savoir si le 'type' est dans le tableau. Si ce n'est pas dans la tableau, on s'en va
+        $type = $_FILES['file']['type'];
+        if(!in_array($type, self::VALID_TYPES)){
             header("Location: edit.php?productId=$productId");
             die();
         }
@@ -80,36 +78,16 @@ class UploadService {
             header("Location: upload.php");
             die();
         }
-
     }
 
     public function getUploadedFile()
     {
-        // //récupérer le dossier actuel - pour connaitre le chemin du dossier
-        // // pour le moment il est stocké ici : C:\wamp64\tmp\phpB587.tmp mais on veut le stocker dans le dossier upload
-        // $currentDir = dirname(__FILE__); // FILE 
-        // echo $currentDir. '<br>';
-        // $destinationDir = $currentDir.'/uploads/'; // on dit qu'on le met dans upload
-        // echo $destinationDir. '<br>';
-        // $destination = $destinationDir.$_FILES['file']['name']; // on veut récupérer le nom du fichier
-        // echo $destination . '<br>';
-        // // if(!move_uploaded_file($_FILES['file']['tmp_name'], $destination)){ // on bouge le fichier dans upload
-        // //     echo 'fichier non téléchargé';
-        // //     header("Location: upload.php");
-        // //     die();
-        // // }
-
-
-        // //récupérer le dossier actuel - pour connaitre le chemin du dossier
-        // // pour le moment il est stocké ici : C:\wamp64\tmp\phpB587.tmp mais on veut le stocker dans le dossier upload
+        // récupérer le dossier actuel - pour connaitre le chemin du dossier
+        // pour le moment il est stocké ici : C:\wamp64\tmp\phpB587.tmp
+        // mais on veut le stocker dans le dossier upload
         $currentPath = $_FILES['file']['tmp_name'];
-        // echo $currentPath. '<br>';
-
         $destinationPath = 'uploads/'.$_FILES['file']['name'];
-        // echo $destinationPath. '<br>';
-
         $moveTheFile = move_uploaded_file($currentPath, $destinationPath);
-        // echo $moveTheFile. '<br>';
 
         if(!$moveTheFile){
             header("Location: upload.php");
@@ -117,7 +95,6 @@ class UploadService {
         }
 
         return $destinationPath;
-
     }
 
     function checkIfFieldIsNumeric() 
@@ -127,7 +104,5 @@ class UploadService {
             header("Location: upload.php");
             die();
         }
-    }
-        
-
+    }     
 }

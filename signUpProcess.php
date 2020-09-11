@@ -41,9 +41,6 @@ if (isDataFromFormValid() === false) {
     die();
 }
 
-//echo "Création d'un compte au nom de $firstname $lastname ($email) et le mot de passe : $password ";
-
-
 // On checke si l'email existe déjà en base de donnée
 $userRepository = new UserRepository();
 
@@ -61,5 +58,3 @@ $userId = $userRepository->createUser($_POST['firstname'],  $_POST['lastname'], 
 (new MessageService())->fillMessage("user_created");
 
 header("Location: index.php");
-
-

@@ -9,6 +9,7 @@ function secureUserId(int $userId)
     }
 }
 
+// verification champs'int'
 function checkInGETOrRedirect(string $value,  string $type)
 {
     if (isset($_GET[$value])) {
@@ -38,6 +39,7 @@ function checkInGETOrRedirect(string $value,  string $type)
     }
 }
 
+// gérer la redirection
 function goToIndex()
 {
     header("Location: index.php"); 

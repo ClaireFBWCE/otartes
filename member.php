@@ -8,12 +8,9 @@ require_once 'models/FunctionService.php';
 
 $title = "Toutes mes recettes 😋";
 
-// die(var_dump($_SESSION));
-
+// verif member
 $memberId = checkInGETOrRedirect('memberId', 'int');
-
 secureUserId($memberId);
-// die(var_dump($userId));
 
 // récupère les produits
 $productRepo = new ProductRepository();

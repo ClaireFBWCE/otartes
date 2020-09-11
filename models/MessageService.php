@@ -26,13 +26,4 @@ class MessageService
     {
         return isset($_SESSION['message']);
     }
-
-    // public function getAndDeleteMessage()
-    // {
-    //     // $messageest soit unstring soit false
-    //     $message = $this->getMessage();
-    //     $this->deleteMessage();
-
-    //     return $message;
-    // }
 }

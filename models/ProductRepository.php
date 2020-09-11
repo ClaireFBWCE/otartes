@@ -18,10 +18,8 @@ class ProductRepository{
         $query->execute();
         $allPies = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        // die(var_dump($allPies));     
         shuffle($allPies);    
         return $allPies; 
-
     }
 
     public function get6RecentPies() 
@@ -78,7 +76,6 @@ class ProductRepository{
         }        
         
         return $query->fetch(PDO::FETCH_ASSOC);
-
     }
 
     public function getProductByCategory(int $category_id)
@@ -95,7 +92,6 @@ class ProductRepository{
         }        
         
         return $query->fetchAll(PDO::FETCH_ASSOC);
-
     }
 
     public function createProduct(array $product, int $userId) : bool
@@ -133,7 +129,6 @@ class ProductRepository{
         }        
         
         return $query->fetchAll(PDO::FETCH_ASSOC);
-
     }
 
     public function getAllProductMember()
@@ -144,18 +139,13 @@ class ProductRepository{
         $query->execute();
         $allProductMember = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        // die(var_dump($allPies));     
         shuffle($allProductMember);    
         return $allProductMember; 
-
     }
 
 
-    public function delete($product_id) : bool {
-        
-        // echo 'Demande de supression du produit: "'.$product_id.'"<br>';
-        // die();
-
+    public function delete($product_id) : bool 
+    {
         $SQL = 'DELETE FROM `otartes_product` WHERE id = :productId';
         $query = $this->database->pdo->prepare($SQL);
         $results = $query->execute(['productId' => $product_id]);
@@ -163,11 +153,8 @@ class ProductRepository{
         return $results;
     }
 
-    public function updateWithNewImage(array $productToUpdate,  int $productId) : bool {
-        
-        // echo 'Demande de supression du produit: "'.$product_id.'"<br>';
-        // die(var_dump($productToUpdate, $productId));
-
+    public function updateWithNewImage(array $productToUpdate,  int $productId) : bool 
+    {
         $SQL = 'UPDATE otartes_product SET `name`= :nom, `image` = :photo, `alt` = :alt, 
         `ingredients` = :ingredient, `recipe` = :recipe, `mixture` = :mixture, 
         `baking` = :baking, `number` = :nbpersonne, `category_id` = :categoryId
@@ -187,14 +174,10 @@ class ProductRepository{
             ]);
 
         return $results;
-        // die(var_dump($results));
     }
 
-    public function updateWithoutImage(array $productToUpdate,  int $productId) : bool {
-        
-        // echo 'Demande de supression du produit: "'.$product_id.'"<br>';
-        // die(var_dump($productToUpdate, $productId));
-
+    public function updateWithoutImage(array $productToUpdate,  int $productId) : bool 
+    {      
         $SQL = 'UPDATE otartes_product SET `name`= :nom, 
         `ingredients` = :ingredient, `recipe` = :recipe, `mixture` = :mixture, 
         `baking` = :baking, `number` = :nbpersonne, `category_id` = :categoryId
@@ -212,10 +195,5 @@ class ProductRepository{
             ]);
 
         return $results;
-        // die(var_dump($results));
     }
 }
-/* Test UPDATE
-UPDATE `otartes_product` SET `name` = 'jefaisuneupdate', `image` = 'couleurs-otartes.JPG', `alt` = 'sdfsq', `ingredients` = 'qfq', `recipe` = 'qfq', `mixture` = '35', `baking` = '23', `number` = '15'
-WHERE id = 50;
-*/
