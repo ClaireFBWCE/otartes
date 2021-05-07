@@ -4,7 +4,7 @@ session_start();
 require_once 'config'.DIRECTORY_SEPARATOR.'config.php';
 require_once 'models/Autoloader.php';
 
-$title = 'Tous nos Ô Tartes !';  
+$title = 'Toutes nos Ô Tartes !';  
 
 // récupérer les users
 $userRepo = new UserRepository();
